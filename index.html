@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation</title>
+<style>
+  :root { --fg: #0f172a; --bg: #f8fafc; --muted:#64748b; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,'Noto Sans',sans-serif; }
+  .deck { height: 100vh; display: grid; xgrid-template-rows: 1fr 56px; }
+  main { position: relative; overflow: hidden; }
+  footer { display:flex; align-items:center; justify-content:space-between; padding: 0 16px; background: white; border-top: 1px solid #e2e8f0; }
+  button { border: 1px solid #cbd5e1; background: white; padding: 8px 12px; border-radius: 999px; font-size: 14px; cursor: pointer; }
+  button:hover { background: #f1f5f9; }
+  .slide { position: absolute; inset: 0; padding: clamp(16px, 6vw, 48px); display: grid; place-content: center; opacity: 0; transform: translateX(40px); transition: all .35s ease; }
+  .slide.active { opacity: 1; transform: translateX(0); }
+  .slide .inner { max-width: min(1100px, 90vw); margin: 0 auto; background: rgba(255,255,255,0.92); border-radius: 24px; padding: clamp(24px, 4vw, 48px); box-shadow: 0 10px 30px rgba(2,6,23,0.08); border:1px solid #e2e8f0; }
+  .slide::before { content: ""; position: absolute; inset: 0; background-image: url("image1_compressed.jpg"); background-size: cover; background-position: center; opacity: 0.28; pointer-events: none; }
+  h1 { font-size: clamp(28px, 4vw, 46px); margin: 0 0 16px; line-height: 1.15; }
+  .block { margin: 12px 0; }
+  ul { margin: 0.25rem 0 0.75rem 1.25rem; }
+  li { margin: 0.25rem 0; font-size: clamp(16px, 2.1vw, 20px); }
+  .progress { width: 100%; height: 6px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+  .progress .bar { width: 0%; height: 100%; background: #0ea5e9; transition: width .25s ease; }
+  .hint { color: var(--muted); font-size: 13px; }
+  .media-vertical { display:flex; flex-direction:column; gap:12px; margin-top: 12px; }
+  .media-vertical img { display:block; margin: 0 auto; width: auto; max-width: 100%; height: auto; border-radius:12px; border:1px solid #e2e8f0; }
+  .media-inline img { display:block; margin: 12px auto 0; width: auto; max-width: 100%; height: auto; border-radius:12px; border:1px solid #e2e8f0; }
+  .sources { margin-top: 12px; font-size: 14px; color: #334155;display: inline-block;width: 90px; }
+  .sourceslink { color: #0369a1; font-size: 14px; text-decoration: underline; display: inline-block; }
+
+
+  /* Navigation layout tweak */
+  footer .controls { display:flex; align-items:center; gap:8px; width:100%; }
+  footer .controls .progress { flex: 1; }
+  footer .controls button { padding: 4px 10px; font-size: 12px; line-height: 1.1; border-radius: 8px; }
+
+  .subtitle{font-size:22pt;color:#475569;margin:6px 0 14px;text-align: center;}
+  .heading{font-weight: bold; font-size: 32pt;text-align: center;}
+  .heading2{font-weight: bold; font-size: 28pt;text-align: center;}
+  .heading3{font-weight: bold; font-size: 22pt;text-align: center;}
+</style>
+</head>
+<body>
+<div class="deck">
+  <main id="slidesContainer">
+<section class='slide' data-title="Yang Lu"><div class='heading'>Airline Pilot Salary Research<br />2020-2024</div><p class='subtitle'>Yang Lu<br>August 2025</p></section>
+<section class='slide' data-title="Information Resource">
+  <div class="inner"><div class='heading2'>Information Resource</div><ul><li>BLS scope: The Bureau of Labor Statistics reports by occupation, industry, and state, not by individual airline company.</li>
+<li>Company-level data isn’t disclosed</li>
+<li>Actual company pay is specified in union contracts (CBAs) as hourly rate tables by aircraft type and seniority (year-of-service)</li>
+<li>Annualized earnings vary widely with aircraft, seniority (FO vs Captain), credit hours (guarantee 70–75 hrs/month, plus extra flying), override premiums, per diem, and deadhead/holiday rules.</li></ul>
+</div></section>
+<section class='slide' data-title="Airline Pilot Salary Trends (2020–2024)">
+  <div class="inner"><div class='heading2'>Airline Pilot Salary Trends (2020–2024)</div><ul><li>Data source: BLS OEWS (occupation &amp; state level). Some states have incomplete data; only states with relatively full series are shown. North Carolina: Missing 2020 salary in BLS. Used 2021 as baseline.</li>
+<li>Trends:</li>
+<li>Strong nominal and real growth in Oregon (+105% nominal, +69% real) and Minnesota (+79% nominal, +48% real).</li>
+<li>Arizona also shows solid gains (+52% nominal, +26% real).</li>
+<li>North Carolina saw a decline (–11% nominal, –26% real).</li>
+<li>Alaska, Colorado, Texas, and Utah had only small nominal gains, which were negative in real terms</li></ul>
+</div></section>
+<section class='slide' data-title="Slide"><div class='inner'><div class='media-inline'><img src='image2.png' alt='Slide 4 image'></div></div></section>
+<section class='slide' data-title="CPI-U 2020-2024"><div class='inner'>
+  <div class='heading3'>CPI-U 2020–2024</div>
+  <div class="media-vertical"><img src="image4.png" alt="CPI-U 2020–2024" /></div><div><br></div>
+  <div style="height:16px"></div>
+  <div class='heading3'>Salary Date 2020–2024</div>
+  <div class="media-vertical"><img src="image3.png" alt="Salary Date 2020–2024" /></div>
+  <div><div class='sources'>Sources: </div><div class="sourceslink"><a href="https://www.bls.gov/cpi/data.htm" target="_blank" rel="noopener noreferrer">https://www.bls.gov/cpi/data.htm</a></div></div>
+  <div><div class='sources'></div><div class="sourceslink"></div><a href="https://www.bls.gov/oes/2024/may/oes_research_estimates.htmA_PCT10" target="_blank" rel="noopener noreferrer">https://www.bls.gov/oes/2024/may/oes_research_estimates.htmA_PCT10</a></div></div>
+</div></section>
+  </main>
+  <footer>
+    <div class="hint">Use ← → keys or click buttons to navigate</div>
+    <div class="controls">
+      <button id="prevBtn">◀ Prev</button>
+      <div class="progress"><div class="bar" id="progressBar"></div></div>
+      <button id="nextBtn">Next ▶</button>
+    </div>
+  </footer>
+</div>
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let index = 0;
+  function show(i) {
+    index = (i + slides.length) % slides.length;
+    slides.forEach((s, j) => s.classList.toggle('active', j === index));
+    const pct = ((index + 1) / slides.length) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.title = slides[index].dataset.title + ' — Presentation';
+    history.replaceState(null, '', '#'+(index+1));
+  }
+  document.getElementById('prevBtn').onclick = () => show(index - 1);
+  document.getElementById('nextBtn').onclick = () => show(index + 1);
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowRight','PageDown',' '].includes(e.key)) { e.preventDefault(); show(index+1); }
+    if (['ArrowLeft','PageUp','Backspace'].includes(e.key)) { e.preventDefault(); show(index-1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length-1);
+  });
+  const hash = location.hash.replace('#','');
+  if (hash && !isNaN(parseInt(hash))) {
+    show(parseInt(hash)-1);
+  } else {
+    show(0);
+  }
+</script>
+</body>
+</html>
